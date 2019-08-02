@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        .pavan {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body style="  background: url('https://i.ibb.co/RP6w5Z9/art-background-blue-1037992.jpg') no-repeat center center fixed;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover; ">
+    <div class="container-fluid">
+
+        <div class="col-lg-12">
+
+            <h1 class="pavan text-center" style="padding: 30px;">
+                Enter Your Date Of Birth
+            </h1>
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div style="margin-top:17%;margin-bottom: 40%;background-color: #ffffffb0 ;padding:30px;">
+                        <br>
+                        <form id="pavan_kumar">
+                            <div class="form-group ">
+                                <input class="form-control" type="date" id="pavan_Dob">
+                            </div>
+                            <input type="submit" class="btn btn-warning btn-block">
+                        </form>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div style="margin-top:17%;margin-bottom: 40%;background-color: #ffffffb0 ;padding:30px;">
+                        <h1>Hello..........</h1>
+                        <div id="hello123">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#pavan_kumar').on('submit', function(e) {
+                e.preventDefault();
+                var Dob = $('#pavan_Dob').val();
+                var current = new Date().getFullYear()
+                var A = Dob.split('-');
+                var age = current - A[0];
+                var retird = 65 - age;
+                // alert(age);
+                // alert(A[2] + '-' + A[1] + '-' + current);
+                // alert(retird);
+                var template = "";
+                template += `
+                    <h3>Age              :${age}</h3>
+                    <h3>Current Year DOB :${A[2] + '-' + A[1] + '-' + current}</h3>
+                    <h3>Retiredment      :${retird}</h3>
+                `
+                $('#hello123').html(template);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
